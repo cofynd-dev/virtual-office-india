@@ -1,0 +1,24 @@
+<svg width="1280" height="636" viewBox="0 0 1280 636" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_2496_14494)">
+<rect width="1280" height="636" fill="#FCFBF8"/>
+<rect width="1280" height="636" fill="url(#pattern0_2496_14494)" fill-opacity="0.05"/>
+<g filter="url(#filter0_f_2496_14494)">
+<circle cx="639.5" cy="-0.5" r="553.5" fill="#FCFBF8"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_2496_14494" x="-64" y="-704" width="1407" height="1407" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_2496_14494"/>
+</filter>
+<clipPath id="clip0_2496_14494">
+<rect width="1280" height="636" fill="white"/>
+</clipPath>
+<pattern id="pattern0_2496_14494" patternUnits="userSpaceOnUse" viewBox="584 786.517 28.3557 7.51664" width="2.7248053615625167%" height="1.4536891550464761%" patternContentUnits="objectBoundingBox">
+<g id="pattern0_2496_14494_inner">
+<path d="M612.356 779V781.851C607.603 784.703 602.851 785.02 598.257 785.336C593.346 785.653 588.673 785.97 584 789.297V786.445C588.752 783.594 593.505 783.277 598.099 782.96C603.009 782.643 607.683 782.327 612.356 779Z" fill="#18191A"/>
+</g>
+<use xlink:href="#pattern0_2496_14494_inner" transform="translate(0 7.51664)"/>
+</pattern></defs>
+</svg>
