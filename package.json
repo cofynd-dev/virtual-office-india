@@ -41,13 +41,17 @@
   "scripts": {
     "dev": "next dev -p 4028",
     "dev:mobile": "node scripts/print-lan-url.mjs && next dev -p 4028 -H 0.0.0.0",
-    "build": "DIST_DIR=.next-build next build",
-    "start": "DIST_DIR=.next-build next start -p 4028",
+    "build": "next build",
+    "build:local": "DIST_DIR=.next-build next build",
+    "start": "next start -p 4028",
+    "start:local": "DIST_DIR=.next-build next start -p 4028",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
-    "serve": "DIST_DIR=.next-build next start -p 4028",
-    "start:mobile": "DIST_DIR=.next-build next start -p 4028 -H 0.0.0.0",
+    "serve": "next start -p 4028",
+    "start:mobile": "next start -p 4028 -H 0.0.0.0",
+    "serve:local": "DIST_DIR=.next-build next start -p 4028",
+    "start:mobile:local": "DIST_DIR=.next-build next start -p 4028 -H 0.0.0.0",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
