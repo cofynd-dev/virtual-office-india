@@ -17,12 +17,7 @@ function isNonEmptyString(v: unknown) {
 
 export async function POST(req: Request) {
   const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
-  if (!webhookUrl) {
-    return NextResponse.json(
-      { ok: false, error: "Missing GOOGLE_SHEETS_WEBHOOK_URL" },
-      { status: 500 }
-    );
-  }
+  const isProd = process.env.NODE_ENV === "production";
 
   let body: LeadPayload;
   try {
@@ -48,6 +43,31 @@ export async function POST(req: Request) {
       typeof crypto !== "undefined" && "randomUUID" in crypto
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+    if (!webhookUrl) {
+      // In preview/dev, allow form submissions without blocking UI.
+      // In production, we still require a configured webhook to avoid silently dropping leads.
+      console.warn("[leads] Missing GOOGLE_SHEETS_WEBHOOK_URL", {
+        requestId,
+        nodeEnv: process.env.NODE_ENV,
+        source: body.source,
+        pageUrl: body.pageUrl,
+      });
+
+      if (isProd) {
+        return NextResponse.json(
+          { ok: false, error: "Missing GOOGLE_SHEETS_WEBHOOK_URL", requestId },
+          { status: 500 }
+        );
+      }
+
+      return NextResponse.json({
+        ok: true,
+        requestId,
+        skipped: true,
+        reason: "Missing GOOGLE_SHEETS_WEBHOOK_URL",
+      });
+    }
 
     const res = await fetch(webhookUrl, {
       method: "POST",

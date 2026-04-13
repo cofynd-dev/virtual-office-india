@@ -65,7 +65,7 @@ export default function CityHeroSection({ city }: { city: City }) {
             <div className="hero-animate-3 grid grid-cols-3 gap-2 sm:gap-3 max-w-lg pt-1">
               {[
                 { value: "10,000+", label: "Businesses Served", icon: "UsersIcon" as const },
-                { value: "₹999", label: "From / month", icon: "CurrencyRupeeIcon" as const },
+                { value: "₹999", label: "Monthly Onwards", icon: "CurrencyRupeeIcon" as const },
                 { value: "24 hrs", label: "Setup", icon: "ClockIcon" as const },
               ].map((s) => (
                 <div

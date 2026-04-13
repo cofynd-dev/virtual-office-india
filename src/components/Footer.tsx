@@ -66,7 +66,7 @@ export default function Footer() {
                     <Icon name="GlobeAltIcon" size={17} className="text-white" />
                   </a>
                   <a
-                    href="https://wa.me/918800000000"
+                    href="https://wa.me/919311328043"
                     aria-label="WhatsApp"
                     className="w-10 h-10 rounded-full bg-white/[0.08] border border-white/10 flex items-center justify-center hover:bg-white/[0.12] transition-colors"
                   >
@@ -90,8 +90,8 @@ export default function Footer() {
                   </li>
                   <li className="flex items-start gap-3">
                     <Icon name="PhoneIcon" size={17} className="text-white/80 mt-0.5 shrink-0" variant="solid" />
-                    <a href="tel:+918800000000" className="text-sm text-white/55 hover:text-white transition-colors">
-                      +91 88000 00000
+                    <a href="tel:+919311328043" className="text-sm text-white/55 hover:text-white transition-colors">
+                      +91 93113 28043
                     </a>
                   </li>
                 </ul>

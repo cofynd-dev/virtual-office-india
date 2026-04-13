@@ -148,11 +148,11 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="tel:+918800000000"
+              href="tel:+919311328043"
               className="flex items-center gap-2 px-4 py-3 text-sm font-semibold text-foreground"
             >
               <Icon name="PhoneIcon" size={16} className="text-foreground" variant="solid" />
-              +91 88000 00000
+              +91 93113 28043
             </a>
             <button
               type="button"

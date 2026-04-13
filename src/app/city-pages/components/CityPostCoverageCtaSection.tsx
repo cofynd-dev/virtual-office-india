@@ -33,10 +33,10 @@ export default function CityPostCoverageCtaSection({
                   className="mt-3 font-display font-extrabold text-foreground tracking-tight leading-tight"
                   style={{ fontSize: "clamp(1.15rem, 2.2vw, 1.6rem)" }}
                 >
-                  Get the best virtual office plan in {city.name}
+                  Get Your GST & ROC-Approved Virtual Office Today
                 </h3>
                 <p className="mt-2 text-center text-sm sm:text-base text-foreground-muted leading-relaxed max-w-2xl mx-auto">
-                  Share your details and we’ll recommend the right plan for GST/ROC—pricing, documents, and setup timeline included.
+                Instant documentation, quick verification, and zero delays. Start your registration process now.
                 </p>
               </div>
 
@@ -46,15 +46,14 @@ export default function CityPostCoverageCtaSection({
                   onClick={() => setIsModalOpen(true)}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl bg-foreground text-white px-6 py-3.5 text-sm font-semibold hover:bg-foreground/90 transition-colors shadow-[0_14px_40px_rgba(15,23,42,0.16)]"
                 >
-                  <Icon name="PhoneArrowUpRightIcon" size={16} className="text-white" />
-                  Get Instant Callback
+                  Get Documents Instantly
                 </button>
                 <a
-                  href="tel:+918800000000"
+                  href="tel:+919311328043"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/[0.12] bg-[#FCFBF7] px-6 py-3.5 text-sm font-semibold text-foreground hover:bg-black/[0.04] transition-colors"
                 >
                   <Icon name="PhoneIcon" size={16} className="text-foreground" variant="solid" />
-                  Call now
+                  Call Now
                 </a>
               </div>
             </div>

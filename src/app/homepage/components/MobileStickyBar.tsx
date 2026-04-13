@@ -10,7 +10,7 @@ export default function MobileStickyBar() {
     <>
       <div className="mobile-sticky-bar">
         <a
-          href="tel:+918800000000"
+          href="tel:+919311328043"
           className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 rounded-xl font-bold text-sm shadow-[0_8px_24px_rgba(0,0,0,0.25)] active:scale-[0.98] transition-transform"
         >
           <Icon name="PhoneIcon" size={16} className="text-white" variant="solid" />

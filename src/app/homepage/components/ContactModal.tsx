@@ -145,7 +145,7 @@ export default function ContactModal({
       />
 
       {/* Modal panel */}
-      <div className="relative z-10 w-full max-w-[360px] sm:max-w-lg lg:max-w-3xl bg-white rounded-2xl sm:rounded-3xl shadow-[0_30px_120px_rgba(0,0,0,0.35)] overflow-hidden animate-modal-in">
+      <div className="relative z-10 w-full max-w-[360px] sm:max-w-md lg:max-w-3xl xl:max-w-3xl bg-white rounded-2xl sm:rounded-3xl shadow-[0_30px_120px_rgba(0,0,0,0.35)] overflow-hidden animate-modal-in">
         {/* Close */}
         <button
           onClick={handleClose}
@@ -176,7 +176,7 @@ export default function ContactModal({
 
               <h2 className="mt-3 font-display font-extrabold text-foreground leading-tight" style={{ fontSize: "clamp(1.2rem, 2vw, 1.55rem)" }}>
                 Get your Virtual Office
-                <span className="block text-foreground/70">ready for GST & ROC</span>
+                <span className="block text-foreground/70">Ready for GST & ROC</span>
               </h2>
 
               <div className="mt-4 grid grid-cols-3 gap-2.5">
@@ -202,8 +202,8 @@ export default function ContactModal({
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs text-foreground/60 font-semibold uppercase tracking-widest">Call us</div>
-                      <a href="tel:+918800000000" className="text-sm font-bold text-foreground hover:text-foreground/80 transition-colors">
-                        +91 88000 00000
+                      <a href="tel:+919311328043" className="text-sm font-bold text-foreground hover:text-foreground/80 transition-colors">
+                        +91 93113 28043
                       </a>
                     </div>
                   </div>
@@ -215,7 +215,7 @@ export default function ContactModal({
           {/* Right form panel */}
           <div className="lg:col-span-3 px-4 sm:px-7 py-4 sm:py-6 max-h-[78vh] overflow-auto bg-[radial-gradient(1200px_600px_at_60%_-20%,rgba(225,220,201,0.55),transparent_55%)]">
             {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4 lg:max-w-md lg:mx-auto">
                 {/* Mobile compact header */}
                 <div className="lg:hidden rounded-2xl bg-[#e1dcc9] text-foreground px-4 py-3 shadow-[0_16px_50px_rgba(0,0,0,0.18)]">
                   {/* <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
@@ -239,72 +239,87 @@ export default function ContactModal({
                   </div>
                 </div> */}
 
-                <div className="grid sm:grid-cols-2 gap-2.5 sm:gap-3">
-                  <div className="sm:col-span-1">
+                <div className="flex flex-col gap-4">
+                  <div className="w-full min-w-0">
+                    <label htmlFor="contact-modal-name" className="sr-only">
+                      Full name
+                    </label>
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-                        <Icon name="UserIcon" size={16} className="text-foreground/40" />
+                        <Icon name="UserIcon" size={18} className="text-foreground/40 shrink-0" />
                       </div>
                       <input
+                        id="contact-modal-name"
                         type="text"
                         required
                         placeholder="Full name"
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl border border-black/[0.10] bg-white text-[13px] text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
+                        className="w-full min-w-0 pl-10 pr-4 py-3 rounded-2xl border border-black/[0.10] bg-white text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
                       />
                     </div>
                   </div>
 
-                  <div className="sm:col-span-1">
-                    <div className="flex gap-2">
-                      <div className="relative flex-1">
-                        <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-                          <Icon name="PhoneIcon" size={16} className="text-foreground/40" variant="solid" />
-                        </div>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="Phone number"
-                          pattern="[0-9]{10}"
-                          value={form.phone}
-                          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                          className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl border border-black/[0.10] bg-white text-[13px] text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
-                        />
-                      </div>
-                    </div>
-                    <p className="mt-1 text-[11px] text-foreground/45">10 digits only</p>
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-2.5 sm:gap-3">
-                  <div>
+                  <div className="w-full min-w-0">
+                    <label htmlFor="contact-modal-phone" className="sr-only">
+                      Phone number
+                    </label>
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-                        <Icon name="EnvelopeIcon" size={16} className="text-foreground/40" />
+                        <Icon name="PhoneIcon" size={18} className="text-foreground/40 shrink-0" variant="solid" />
                       </div>
                       <input
+                        id="contact-modal-phone"
+                        type="tel"
+                        required
+                        placeholder="Phone number"
+                        pattern="[0-9]{10}"
+                        inputMode="numeric"
+                        maxLength={10}
+                        aria-describedby="contact-modal-phone-hint"
+                        value={form.phone}
+                        onChange={(e) => setForm({ ...form, phone: e.target.value.replace(/\D/g, "").slice(0, 10) })}
+                        className="w-full min-w-0 pl-10 pr-4 py-3 rounded-2xl border border-black/[0.10] bg-white text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-full min-w-0">
+                    <label htmlFor="contact-modal-email" className="sr-only">
+                      Email (optional)
+                    </label>
+                    <div className="relative">
+                      <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
+                        <Icon name="EnvelopeIcon" size={18} className="text-foreground/40 shrink-0" />
+                      </div>
+                      <input
+                        id="contact-modal-email"
                         type="email"
                         placeholder="Email (optional)"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl border border-black/[0.10] bg-white text-[13px] text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
+                        className="w-full min-w-0 pl-10 pr-4 py-3 rounded-2xl border border-black/[0.10] bg-white text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
                         autoComplete="email"
                       />
                     </div>
                   </div>
-                  <div>
+
+                  <div className="w-full min-w-0">
+                    <label htmlFor="contact-modal-city" className="sr-only">
+                      City
+                    </label>
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-                        <Icon name="MapPinIcon" size={16} className="text-foreground/40" />
+                        <Icon name="MapPinIcon" size={18} className="text-foreground/40 shrink-0" />
                       </div>
                       <select
+                        id="contact-modal-city"
                         required
                         value={form.city}
                         onChange={(e) => setForm({ ...form, city: e.target.value })}
-                        className="w-full appearance-none pl-10 pr-10 py-2.5 rounded-2xl border border-black/[0.10] bg-white text-[13px] text-foreground focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)]"
+                        className="w-full min-w-0 appearance-none [-webkit-appearance:none] [-moz-appearance:none] pl-10 pr-10 py-3 rounded-2xl border border-black/[0.10] bg-white text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)] [background-image:none]"
                       >
-                        <option value="">City</option>
+                        <option value="">Select city</option>
                         {cities.map((c) => (
                           <option key={c} value={c}>
                             {c}
@@ -312,7 +327,7 @@ export default function ContactModal({
                         ))}
                       </select>
                       <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-                        <Icon name="ChevronDownIcon" size={16} className="text-foreground/40" />
+                        <Icon name="ChevronDownIcon" size={18} className="text-foreground/40 shrink-0" />
                       </div>
                     </div>
                   </div>
@@ -338,21 +353,6 @@ export default function ContactModal({
                     </>
                   )}
                 </button>
-
-                <div className="flex items-center gap-3 pt-3 border-t border-black/[0.06]">
-                  <div className="flex items-center gap-2 flex-1">
-                    <Icon name="ShieldCheckIcon" size={15} className="text-foreground/70" />
-                    <span className="text-[12px] text-foreground/60 font-semibold">No spam</span>
-                  </div>
-                  <div className="flex items-center gap-2 flex-1 justify-center">
-                    <Icon name="LockClosedIcon" size={15} className="text-foreground/70" />
-                    <span className="text-[12px] text-foreground/60 font-semibold">Secure data</span>
-                  </div>
-                  <div className="flex items-center gap-2 flex-1 justify-end">
-                    <Icon name="CheckBadgeIcon" size={15} className="text-foreground/70" />
-                    <span className="text-[12px] text-foreground/60 font-semibold">Verified team</span>
-                  </div>
-                </div>
               </form>
             ) : (
               <div className="text-center py-10">
@@ -365,7 +365,7 @@ export default function ContactModal({
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
-                    href="https://wa.me/918800000000"
+                    href="https://wa.me/919311328043"
                     className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl font-extrabold text-sm bg-black text-white hover:bg-black/90 transition-colors shadow-[0_18px_55px_rgba(0,0,0,0.22)]"
                   >
                     <Icon name="ChatBubbleLeftRightIcon" size={16} className="text-white" />
