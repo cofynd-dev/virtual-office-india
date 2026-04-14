@@ -1,5 +1,5 @@
 export type City = {
-  /** URL slug used in `/virtual-office-in-${slug}` */
+  /** URL slug used in `/${slug}` */
   slug: string;
   /** Display name used across UI */
   name: string;
@@ -1931,7 +1931,7 @@ export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
 ];
 
 export function cityUrl(slug: string) {
-  return `/virtual-office-in-${slug}`;
+  return `/${slug}`;
 }
 
 export function findCityBySlug(slug: string) {

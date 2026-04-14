@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
 import ContactModal from "./ContactModal";
+import { cityUrl } from "@/lib/cities";
 
 const cities = [
   {
+    slug: "gurgaon",
     name: "Gurgaon",
     count: "12 locations",
     popular: true,
@@ -13,6 +15,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/094c67f31028067e4be4bb7d7a68ef8c09fc193a.webp",
   },
   {
+    slug: "delhi",
     name: "Delhi",
     count: "18 locations",
     popular: true,
@@ -20,6 +23,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/84cf21159ba4e6a2a8ef87831bebf7efee6e74e9.webp",
   },
   {
+    slug: "noida",
     name: "Noida",
     count: "8 locations",
     popular: true,
@@ -27,6 +31,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/066c525dad00ee86a27e53272d55d299f7afaaec.webp",
   },
   {
+    slug: "bangalore",
     name: "Bangalore",
     count: "15 locations",
     popular: true,
@@ -34,6 +39,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/d85cd31c74d7d32d5321a1c89b88014c1f88c648.webp",
   },
   {
+    slug: "mumbai",
     name: "Mumbai",
     count: "20 locations",
     popular: true,
@@ -41,6 +47,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/e182162b472bf72729057cc78babd17a74b48572.webp",
   },
   {
+    slug: "hyderabad",
     name: "Hyderabad",
     count: "10 locations",
     popular: true,
@@ -48,6 +55,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/17b5af5e4e45a4dd09efc53ceee1f3f1a4a5cc09.webp",
   },
   {
+    slug: "chennai",
     name: "Chennai",
     count: "7 locations",
     popular: false,
@@ -55,6 +63,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/813132be51f29e91167307f84532f03e9f4b23a0.webp",
   },
   {
+    slug: "pune",
     name: "Pune",
     count: "9 locations",
     popular: false,
@@ -62,6 +71,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/62b28553fde2a39b015af363ca0d27bf49983053.webp",
   },
   {
+    slug: "ahmedabad",
     name: "Ahmedabad",
     count: "5 locations",
     popular: false,
@@ -69,6 +79,7 @@ const cities = [
       "https://img.cofynd.com/images/original/393cfd9c29a2459a275224c1f40acf2274906935.jpg",
   },
   {
+    slug: "kolkata",
     name: "Kolkata",
     count: "6 locations",
     popular: false,
@@ -76,6 +87,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/83122fbececc97ed792d4918fbbec4be8717a1ab.webp",
   },
   {
+    slug: "jaipur",
     name: "Jaipur",
     count: "4 locations",
     popular: false,
@@ -83,6 +95,7 @@ const cities = [
       "https://img.cofynd.com/images/latest_images_2024/34540edac3e9e158c30bb61d6672d4d1a6ee9675.webp",
   },
   {
+    slug: "chandigarh",
     name: "Chandigarh",
     count: "3 locations",
     popular: false,
@@ -125,7 +138,7 @@ export default function CityCoverageSection() {
             {cities?.map((city, i) => (
               <Link
                 key={city?.name}
-                href={`/virtual-office-in-${city.name.toLowerCase()}`}
+                href={cityUrl(city.slug)}
                 className={`scroll-reveal scroll-reveal-delay-${(i % 4) + 1} group block rounded-2xl sm:rounded-3xl border border-black/[0.08] bg-bg-page shadow-[0_12px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_70px_rgba(15,23,42,0.12)] transition-all duration-300 overflow-hidden text-left hover:-translate-y-0.5`}
               >
                   {/* Image panel */}

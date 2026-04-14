@@ -69,11 +69,11 @@ export default async function HomepageRoot() {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Virtual Office in India",
-            url: "https://virtualofficeindia.com",
+            url: "https://virtualofficesindia.com",
             logo: "/assets/images/app_logo.png",
             contactPoint: {
               "@type": "ContactPoint",
-              telephone: "+91-88000-00000",
+              telephone: "+91-93113-28043",
               contactType: "customer service",
               availableLanguage: ["English", "Hindi"],
             },

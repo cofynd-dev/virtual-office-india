@@ -37,7 +37,7 @@ export async function generateMetadata({
   return {
     title: seo?.title?.trim() || fallbackTitle,
     description: seo?.description?.trim() || fallbackDescription,
-    alternates: { canonical: `/virtual-office-in-${citySlug}` },
+    alternates: { canonical: `/${citySlug}` },
     keywords: seoKeywordsToNext(seo?.keywords),
     robots: seoRobotsToNext(seo?.robots),
   };

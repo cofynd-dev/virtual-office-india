@@ -16,13 +16,16 @@ const nextConfig = {
         destination: '/',
         permanent: false,
       },
-    ];
-  },
-  async rewrites() {
-    return [
+      // City pages: new short URLs.
       {
-        source: "/virtual-office-in-:city",
-        destination: "/virtual-office/:city",
+        source: '/virtual-office/:city',
+        destination: '/:city',
+        permanent: true,
+      },
+      {
+        source: '/virtual-office-in-:city',
+        destination: '/:city',
+        permanent: true,
       },
     ];
   },
