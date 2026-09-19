@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
+import { ContactModalProvider } from '@/components/ContactModalProvider';
 import '../styles/tailwind.css';
 
 export const viewport: Viewport = {
@@ -35,7 +36,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </Script>
         {/* End Google Tag Manager */}
       </head>
-      <body>{children}</body>
+      <body>
+        <ContactModalProvider>{children}</ContactModalProvider>
+      </body>
     </html>
   );
 }

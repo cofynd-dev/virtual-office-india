@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from "react";
 import Icon from "@/components/ui/AppIcon";
 import ContactModal from "./ContactModal";
+import { CITIES } from "@/lib/cities";
 
 const reasons = [
   {
@@ -72,10 +73,7 @@ export default function WhyCofyndSection() {
   const tiles = useMemo(() => reasons, []);
   const [activeTitle, setActiveTitle] = useState(tiles[0]?.title ?? "Affordable Pricing");
 
-  const cities = useMemo(
-    () => ["Delhi", "Gurgaon", "Noida", "Bangalore", "Mumbai", "Hyderabad", "Chennai", "Pune", "Ahmedabad", "Kolkata"],
-    []
-  );
+  const cities = useMemo(() => CITIES.map((c) => c.name), []);
 
   return (
     <section id="why-cofynd" className="py-20 sm:py-24 bg-[#FCFBF7]">

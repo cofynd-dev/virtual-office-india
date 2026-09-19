@@ -2,11 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Icon from "@/components/ui/AppIcon";
-
-const cities = [
-  "Gurgaon", "Delhi", "Noida", "Bangalore", "Mumbai",
-  "Hyderabad", "Chennai", "Pune", "Ahmedabad", "Kolkata",
-];
+import { CITIES } from "@/lib/cities";
 
 interface FormData {
   name: string;
@@ -133,7 +129,7 @@ export default function ContactModal({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[999] flex items-center justify-center p-3 sm:p-4"
+      className="fixed inset-0 z-[11000] flex items-center justify-center p-3 sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-label="Contact Form"
@@ -320,9 +316,9 @@ export default function ContactModal({
                         className="w-full min-w-0 appearance-none [-webkit-appearance:none] [-moz-appearance:none] pl-10 pr-10 py-3 rounded-2xl border border-black/[0.10] bg-white text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black/20 shadow-[0_10px_24px_rgba(15,23,42,0.06)] [background-image:none]"
                       >
                         <option value="">Select city</option>
-                        {cities.map((c) => (
-                          <option key={c} value={c}>
-                            {c}
+                        {CITIES.map((c) => (
+                          <option key={c.slug} value={c.name}>
+                            {c.name}
                           </option>
                         ))}
                       </select>

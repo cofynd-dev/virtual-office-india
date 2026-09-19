@@ -103,6 +103,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Scroll reveal */
+@keyframes scroll-reveal-unhide {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
 .scroll-reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -110,12 +118,25 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Never leave sections invisible if the observer misses them */
+  animation: scroll-reveal-unhide 0.01s linear 0.8s forwards;
 }
 
 .scroll-reveal.revealed {
+  animation: none;
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }
 
 .scroll-reveal-delay-1 { transition-delay: 0.1s; }

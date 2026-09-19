@@ -16,9 +16,13 @@ import CityPostCoverageCtaSection from "@/app/city-pages/components/CityPostCove
 import ScrollRevealProvider from "@/app/homepage/components/ScrollRevealProvider";
 import WhatsAppFloat from "@/app/homepage/components/WhatsAppFloat";
 import MobileStickyBar from "@/app/homepage/components/MobileStickyBar";
-import { findCityBySlug } from "@/lib/cities";
+import { CITIES, findCityBySlug } from "@/lib/cities";
 import SeoScripts from "@/components/SeoScripts";
 import { fetchSeoMeta, seoKeywordsToNext, seoRobotsToNext } from "@/lib/seo";
+
+export function generateStaticParams() {
+  return CITIES.map((c) => ({ city: c.slug }));
+}
 
 export async function generateMetadata({
   params,

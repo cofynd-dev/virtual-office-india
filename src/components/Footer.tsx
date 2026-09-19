@@ -2,26 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/components/ui/AppIcon";
-import { cityUrl } from "@/lib/cities";
+import { CITIES, cityUrl } from "@/lib/cities";
 import virtualOfficeLogo from "@/assets/virtual-office-logo-white.png";
 
-const cities = [
-  { name: "Gurgaon", slug: "gurgaon" },
-  { name: "Delhi", slug: "delhi" },
-  { name: "Noida", slug: "noida" },
-  { name: "Bangalore", slug: "bangalore" },
-  { name: "Mumbai", slug: "mumbai" },
-  { name: "Hyderabad", slug: "hyderabad" },
-  { name: "Chennai", slug: "chennai" },
-  { name: "Pune", slug: "pune" },
-];
-
 const services = [
-  "GST Registration Address",
-  "Company Incorporation",
-  "Business Address",
-  "Mail Handling",
-  "Meeting Rooms",
+  { label: "GST Registration", href: "/gst-registration" },
+  { label: "Company Registration", href: "/company-registration" },
+  { label: "Business Address", href: "/" },
 ];
 
 export default function Footer() {
@@ -57,36 +44,10 @@ export default function Footer() {
                   freelancers &amp; SMEs.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <a
-                    href="#"
-                    aria-label="Website"
-                    className="w-10 h-10 rounded-full bg-white/[0.08] border border-white/10 flex items-center justify-center hover:bg-white/[0.12] transition-colors"
-                  >
-                    <Icon name="GlobeAltIcon" size={17} className="text-white" />
-                  </a>
-                  <a
-                    href="https://wa.me/919311328043"
-                    aria-label="WhatsApp"
-                    className="w-10 h-10 rounded-full bg-white/[0.08] border border-white/10 flex items-center justify-center hover:bg-white/[0.12] transition-colors"
-                  >
-                    <Icon name="ChatBubbleLeftRightIcon" size={17} className="text-white" />
-                  </a>
-                </div>
-
                 <ul className="space-y-3.5 pt-1">
                   <li className="flex items-start gap-3">
                     <Icon name="MapPinIcon" size={17} className="text-white/80 mt-0.5 shrink-0" />
                     <span className="text-sm text-white/55 leading-relaxed">Gurgaon, Haryana, India</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Icon name="EnvelopeIcon" size={17} className="text-white/80 mt-0.5 shrink-0" />
-                    <a
-                      href="mailto:hello@cofynd.com"
-                      className="text-sm text-white/55 hover:text-white transition-colors break-all"
-                    >
-                      hello@cofynd.com
-                    </a>
                   </li>
                   <li className="flex items-start gap-3">
                     <Icon name="PhoneIcon" size={17} className="text-white/80 mt-0.5 shrink-0" variant="solid" />
@@ -102,30 +63,13 @@ export default function Footer() {
               </div>
 
               {/* Services */}
-              <div className="lg:col-span-3 lg:pt-1">
+              <div className="lg:col-span-7 lg:pt-1 lg:justify-self-end lg:w-full lg:max-w-xs">
                 <p className="text-sm font-bold text-white mb-4">Services</p>
                 <ul className="space-y-3">
                   {services.map((s) => (
-                    <li key={s}>
-                      <Link href="/" className="text-sm text-white/55 hover:text-white transition-colors">
-                        {s}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Top cities */}
-              <div className="lg:col-span-4 lg:pt-1">
-                <p className="text-sm font-bold text-white mb-4 text-left lg:text-right">Top Cities</p>
-                <ul className="space-y-3 flex flex-col lg:items-end">
-                  {cities.map((city) => (
-                    <li key={city.slug} className="text-left lg:text-right">
-                      <Link
-                        href={cityUrl(city.slug)}
-                        className="text-sm text-white/55 hover:text-white transition-colors"
-                      >
-                        Virtual Office in {city.name}
+                    <li key={s.label}>
+                      <Link href={s.href} className="text-sm text-white/55 hover:text-white transition-colors">
+                        {s.label}
                       </Link>
                     </li>
                   ))}
@@ -133,24 +77,42 @@ export default function Footer() {
               </div>
             </div>
 
+            <div className="mt-12 pt-8 border-t border-white/10">
+              <p className="text-sm font-bold text-white mb-5">Cities</p>
+              <ul className="grid grid-cols-1 min-[400px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-2.5">
+                {CITIES.map((city) => (
+                  <li key={city.slug}>
+                    <Link
+                      href={cityUrl(city.slug)}
+                      className="block text-sm text-white/55 hover:text-white transition-colors leading-snug"
+                    >
+                      Virtual Office in {city.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Bottom strip */}
-            <div className="mt-12 sm:mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center gap-2.5">
-                <span className="relative flex h-2.5 w-2.5 shrink-0">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0a0a0a]" />
-                </span>
-                <span className="text-sm text-white/80 font-medium">All services are online</span>
-              </div>
+            <div className="mt-12 sm:mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4">
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-                <Link href="#" className="text-white/45 hover:text-white/80 transition-colors">
+                <Link href="/about-us" className="text-white/45 hover:text-white/80 transition-colors">
+                  About Us
+                </Link>
+                <Link href="/blog" className="text-white/45 hover:text-white/80 transition-colors">
+                  Blog
+                </Link>
+                <Link
+                  href="/refund-cancellation-policy"
+                  className="text-white/45 hover:text-white/80 transition-colors"
+                >
+                  Refund &amp; Cancellation
+                </Link>
+                <Link href="/privacy-policy" className="text-white/45 hover:text-white/80 transition-colors">
                   Privacy Policy
                 </Link>
                 <Link href="#" className="text-white/45 hover:text-white/80 transition-colors">
                   Terms of Service
-                </Link>
-                <Link href="#" className="text-white/45 hover:text-white/80 transition-colors">
-                  GST Disclosures
                 </Link>
               </div>
             </div>

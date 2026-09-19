@@ -1,0 +1,126 @@
+"use client";
+import React, { useState } from "react";
+import Icon from "@/components/ui/AppIcon";
+import ContactModal from "@/app/homepage/components/ContactModal";
+
+const documents = [
+  {
+    icon: "BuildingOffice2Icon",
+    title: "Business Address",
+    description: "The commercial address you will use as your registered office.",
+    iconBg: "bg-[#EFF6FF]",
+    iconColor: "text-[#2563EB]",
+  },
+  {
+    icon: "DocumentCheckIcon",
+    title: "NOC / Consent Documentation",
+    description: "Consent from the property owner permitting use of the premises as your address.",
+    iconBg: "bg-[#ECFDF5]",
+    iconColor: "text-[#16A34A]",
+  },
+  {
+    icon: "DocumentTextIcon",
+    title: "Rent / Lease Documentation",
+    description: "Rent or lease paperwork for the address, where applicable.",
+    iconBg: "bg-[#FFF7ED]",
+    iconColor: "text-[#F59E0B]",
+  },
+  {
+    icon: "BoltIcon",
+    title: "Utility / Address Proof",
+    description: "Utility bill or address proof for the premises, where applicable.",
+    iconBg: "bg-[#E0F2FE]",
+    iconColor: "text-[#0EA5E9]",
+  },
+  {
+    icon: "ClipboardDocumentListIcon",
+    title: "Premises Documentation",
+    description: "Additional premises-related documents, where applicable to the location.",
+    iconBg: "bg-[#F3E8FF]",
+    iconColor: "text-[#7C3AED]",
+  },
+  {
+    icon: "EnvelopeOpenIcon",
+    title: "Mail & Courier Support",
+    description: "Official correspondence received at your address and handled as per your plan.",
+    iconBg: "bg-[#FEF2F2]",
+    iconColor: "text-[#EF4444]",
+  },
+];
+
+export default function CompanyDocumentsSection() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <section className="py-16 sm:py-20 bg-[#FCFBF7]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-12">
+          <div className="scroll-reveal flex flex-col items-center text-center">
+            <h2
+              className="font-display font-extrabold text-foreground flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full tracking-tight"
+              style={{ fontSize: "clamp(1.35rem, 2.5vw, 2rem)" }}
+            >
+              <span
+                className="inline-flex items-center justify-center rounded-2xl bg-black/[0.06] border border-black/[0.08] p-2.5 sm:p-3 shrink-0"
+                aria-hidden
+              >
+                <Icon name="ClipboardDocumentCheckIcon" size={24} className="text-foreground" />
+              </span>
+              <span className="leading-tight min-w-0 text-center">
+                Supporting Documents for Your Registered Office
+              </span>
+            </h2>
+            <p className="mt-3 text-center text-foreground-muted max-w-xl text-sm sm:text-base leading-relaxed mx-auto">
+              What is typically provided or required for the address you choose.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {documents.map((doc, i) => (
+            <div
+              key={doc.title}
+              className={`scroll-reveal scroll-reveal-delay-${(i % 4) + 1} h-full flex flex-col rounded-3xl border border-black/[0.08] bg-white px-6 py-7 shadow-[0_18px_55px_rgba(15,23,42,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_75px_rgba(15,23,42,0.11)]`}
+            >
+              <span
+                className={`w-12 h-12 ${doc.iconBg} rounded-2xl border border-black/[0.06] flex items-center justify-center shadow-[0_10px_26px_rgba(15,23,42,0.06)]`}
+                aria-hidden
+              >
+                <Icon name={doc.icon as "DocumentCheckIcon"} size={22} className={doc.iconColor} />
+              </span>
+              <h3 className="mt-5 font-display font-extrabold text-lg text-foreground leading-snug">
+                {doc.title}
+              </h3>
+              <p className="mt-2 text-sm sm:text-[15px] text-foreground-muted leading-relaxed">
+                {doc.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-6 text-center text-xs sm:text-sm text-foreground-subtle leading-relaxed max-w-2xl mx-auto">
+          Availability of each document depends on your selected city, location, and plan. Our team will
+          confirm what applies to your case.
+        </p>
+
+        <div className="text-center mt-7 sm:mt-8 scroll-reveal">
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm bg-foreground text-white hover:bg-foreground/90 transition-colors shadow-[0_14px_40px_rgba(15,23,42,0.18)]"
+          >
+            Check Documents for My City
+            <Icon name="ArrowRightIcon" size={15} className="text-white" />
+          </button>
+        </div>
+      </div>
+
+      <ContactModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        prefillRequirement="company-registration"
+        metadata={{ action: "company-documents-cta", page: "company-registration" }}
+      />
+    </section>
+  );
+}

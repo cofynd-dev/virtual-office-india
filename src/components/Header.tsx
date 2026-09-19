@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/components/ui/AppIcon";
-import ContactModal from "@/app/homepage/components/ContactModal";
+import { useContactModal } from "@/components/ContactModalProvider";
 import { CITIES, cityUrl } from "@/lib/cities";
 import virtualOfficeLogo from "@/assets/virtual-office-logo.png";
 
@@ -11,8 +11,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [shrink, setShrink] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
   const [citiesOpen, setCitiesOpen] = useState(false);
+  const { open: openContactModal } = useContactModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [citiesOpen]);
 
-  const dropdownCities = CITIES.slice(0, 12);
+  const dropdownCities = CITIES;
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
@@ -85,7 +85,7 @@ export default function Header() {
               </button>
 
               {citiesOpen && (
-                <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-[580px] rounded-3xl border border-black/[0.10] bg-[#FCFBF7] shadow-[0_24px_70px_rgba(15,23,42,0.16)] p-2 z-[70]">
+                <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-[580px] max-h-[min(70vh,520px)] overflow-y-auto rounded-3xl border border-black/[0.10] bg-[#FCFBF7] shadow-[0_24px_70px_rgba(15,23,42,0.16)] p-2 z-[70]">
                   <div className="grid grid-cols-2">
                     {dropdownCities.map((city, idx) => (
                       <Link
@@ -110,13 +110,25 @@ export default function Header() {
                 </div>
               )}
             </div>
+            <Link
+              href="/about-us"
+              className="px-4 py-2 rounded-full text-sm font-semibold text-foreground/70 hover:text-foreground hover:bg-black/[0.04] transition-all duration-200"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/blog"
+              className="px-4 py-2 rounded-full text-sm font-semibold text-foreground/70 hover:text-foreground hover:bg-black/[0.04] transition-all duration-200"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* Right: Phone + CTA */}
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               type="button"
-              onClick={() => setModalOpen(true)}
+              onClick={() => openContactModal({ metadata: { action: "header-cta" } })}
               className={`hidden sm:inline-flex rounded-full text-sm font-semibold transition-all duration-300 bg-foreground text-white hover:bg-foreground/90 shadow-[0_12px_36px_rgba(15,23,42,0.20)] ${
                 scrolled ? "px-4 py-2" : "px-4 sm:px-5 py-2.5"
               }`}
@@ -137,7 +149,11 @@ export default function Header() {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden mt-2 rounded-2xl border border-black/[0.08] bg-white/90 backdrop-blur-xl shadow-[0_18px_60px_rgba(15,23,42,0.14)] py-3 pb-4 px-2 space-y-1">
-            {[{ label: "Cities", href: "/#cities" }]?.map((item) => (
+            {[
+              { label: "Cities", href: "/#cities" },
+              { label: "About Us", href: "/about-us" },
+              { label: "Blog", href: "/blog" },
+            ]?.map((item) => (
               <Link
                 key={item?.href}
                 href={item?.href}
@@ -158,7 +174,7 @@ export default function Header() {
               type="button"
               onClick={() => {
                 setMenuOpen(false);
-                setModalOpen(true);
+                openContactModal({ metadata: { action: "header-mobile-cta" } });
               }}
               className="w-full text-left px-4 py-3 rounded-xl text-sm font-semibold text-white bg-foreground hover:bg-foreground/90 transition-colors"
             >
@@ -167,7 +183,6 @@ export default function Header() {
           </div>
         )}
       </div>
-      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </header>
   );
 }

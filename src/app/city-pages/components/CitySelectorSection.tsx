@@ -1,94 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
-import { cityUrl } from "@/lib/cities";
-
-const allCities = [
-  {
-    name: "Gurgaon",
-    state: "Haryana",
-    locations: 12,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/094c67f31028067e4be4bb7d7a68ef8c09fc193a.webp",
-  },
-  {
-    name: "Delhi",
-    state: "Delhi NCR",
-    locations: 18,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/84cf21159ba4e6a2a8ef87831bebf7efee6e74e9.webp",
-  },
-  {
-    name: "Noida",
-    state: "Uttar Pradesh",
-    locations: 8,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/066c525dad00ee86a27e53272d55d299f7afaaec.webp",
-  },
-  {
-    name: "Bangalore",
-    state: "Karnataka",
-    locations: 15,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/d85cd31c74d7d32d5321a1c89b88014c1f88c648.webp",
-  },
-  {
-    name: "Mumbai",
-    state: "Maharashtra",
-    locations: 20,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/e182162b472bf72729057cc78babd17a74b48572.webp",
-  },
-  {
-    name: "Hyderabad",
-    state: "Telangana",
-    locations: 10,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/17b5af5e4e45a4dd09efc53ceee1f3f1a4a5cc09.webp",
-  },
-  {
-    name: "Chennai",
-    state: "Tamil Nadu",
-    locations: 7,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/813132be51f29e91167307f84532f03e9f4b23a0.webp",
-  },
-  {
-    name: "Pune",
-    state: "Maharashtra",
-    locations: 9,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/99e8dfd6fb1f6220fbd2297de44ae1ea2601d8a9.webp",
-  },
-  {
-    name: "Ahmedabad",
-    state: "Gujarat",
-    locations: 5,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/62b28553fde2a39b015af363ca0d27bf49983053.webp",
-  },
-  {
-    name: "Kolkata",
-    state: "West Bengal",
-    locations: 6,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/83122fbececc97ed792d4918fbbec4be8717a1ab.webp",
-  },
-  {
-    name: "Jaipur",
-    state: "Rajasthan",
-    locations: 4,
-    imageUrl:
-      "https://img.cofynd.com/images/latest_images_2024/34540edac3e9e158c30bb61d6672d4d1a6ee9675.webp",
-  },
-  {
-    name: "Chandigarh",
-    state: "Punjab",
-    locations: 3,
-    imageUrl:
-      "https://img.cofynd.com/images/original/d5ad55f917d61eaad80c95409cb794a490d2d542.jpg",
-  },
-];
+import { CITIES, cityUrl } from "@/lib/cities";
 
 export default function CitySelectorSection() {
   return (
@@ -109,15 +22,13 @@ export default function CitySelectorSection() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {allCities?.map((city, i) => (
+          {CITIES.map((city, i) => (
             <Link
-              key={city?.name}
-              href={cityUrl(
-                city.name.toLowerCase()
-              )}
+              key={city.slug}
+              href={cityUrl(city.slug)}
               className={`scroll-reveal scroll-reveal-delay-${(i % 4) + 1} group block rounded-2xl border-2 border-border card-hover text-left overflow-hidden`}
               style={{
-                backgroundImage: city?.imageUrl ? `url(${city.imageUrl})` : undefined,
+                backgroundImage: city.imageUrl ? `url(${city.imageUrl})` : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -132,12 +43,12 @@ export default function CitySelectorSection() {
                       <Icon name="MapPinIcon" size={16} className="text-white transition-colors" />
                     </div>
                     <div>
-                      <div className="font-display font-bold text-sm text-white">{city?.name}</div>
-                      <div className="text-[10px] text-white/80">{city?.state}</div>
+                      <div className="font-display font-bold text-sm text-white">{city.name}</div>
+                      <div className="text-[10px] text-white/80">{city.state}</div>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-white/80">{city?.locations} locations</span>
+                    <span className="text-xs text-white/80">{city.locationsCount} locations</span>
                     <Icon
                       name="ArrowRightIcon"
                       size={12}

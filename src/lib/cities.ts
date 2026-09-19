@@ -108,7 +108,187 @@ export const CITIES: City[] = [
     imageUrl:
       "https://img.cofynd.com/images/original/d5ad55f917d61eaad80c95409cb794a490d2d542.jpg",
   },
+  {
+    slug: "indore",
+    name: "Indore",
+    state: "Madhya Pradesh",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/dc5ce0f99f9d9f60dbd918cb8fcbbbf55c751802.webp",
+  },
+  {
+    slug: "kochi",
+    name: "Kochi",
+    aliases: ["cochin"],
+    state: "Kerala",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/823b4ae8fa08975d961138f1a86a3232034b3a27.webp",
+  },
+  {
+    slug: "bhubaneswar",
+    name: "Bhubaneswar",
+    state: "Odisha",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/25aed12998db6e7ff53ed44f09c03a8f283d65be.webp",
+  },
+  {
+    slug: "coimbatore",
+    name: "Coimbatore",
+    state: "Tamil Nadu",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/5dcfd32bcbb2dd4ce29dc84e4fdc1f59cc8dc5df.webp",
+  },
+  {
+    slug: "goa",
+    name: "Goa",
+    state: "Goa",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/5f851f16763a594095a265280834524c03d5d00e.webp",
+  },
+  {
+    slug: "lucknow",
+    name: "Lucknow",
+    state: "Uttar Pradesh",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/f6584af3ba7c349e0f3508b34d20df8d6293e373.webp",
+  },
+  {
+    slug: "guwahati",
+    name: "Guwahati",
+    state: "Assam",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/2835d2b7b2145731571046b51bb428d581d02227.webp",
+  },
+  {
+    slug: "dehradun",
+    name: "Dehradun",
+    state: "Uttarakhand",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/721b4821a8354b0d2975ee1eaa23083eca55b454.webp",
+  },
+  {
+    slug: "calicut",
+    name: "Calicut",
+    aliases: ["kozhikode"],
+    state: "Kerala",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/e99f27a6a435e083c2ba22924d75b01d7f3f36c9.webp",
+  },
+  {
+    slug: "mohali",
+    name: "Mohali",
+    state: "Punjab",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/e6f4a41117e094756e5b0caf2f699daa55117502.webp",
+  },
+  {
+    slug: "visakhapatnam",
+    name: "Visakhapatnam",
+    aliases: ["vizag"],
+    state: "Andhra Pradesh",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/b1f742b0f30c92c23c459a37f80c79e6340e5a01.webp",
+  },
+  {
+    slug: "faridabad",
+    name: "Faridabad",
+    state: "Haryana",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/1a6c21398d5607bf20aa8a5da5f7850283ea9b69.webp",
+  },
+  {
+    slug: "bhopal",
+    name: "Bhopal",
+    state: "Madhya Pradesh",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/1eb0ab7baa3aa7cb31ed072e0c146a0f8daa5d76.webp",
+  },
+  {
+    slug: "ernakulam",
+    name: "Ernakulam",
+    state: "Kerala",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/5162c8783f18195f28faca2affb1a85a01938dff.webp",
+  },
+  {
+    slug: "ludhiana",
+    name: "Ludhiana",
+    state: "Punjab",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/ff4fd932f64b08dd6bb23171c5ffee026dfba945.webp",
+  },
+  {
+    slug: "nagpur",
+    name: "Nagpur",
+    state: "Maharashtra",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/780d0c285edae13efe78e5d9b6c7c44406b4fada.webp",
+  },
+  {
+    slug: "patna",
+    name: "Patna",
+    state: "Bihar",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/2979bbe58f7f280390798cf78a0d44b2635bb428.webp",
+  },
+  {
+    slug: "raipur",
+    name: "Raipur",
+    state: "Chhattisgarh",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/eeaca2fbd8e29ad37b12f8c3f555a2e750c0c257.webp",
+  },
+  {
+    slug: "surat",
+    name: "Surat",
+    state: "Gujarat",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/db3c3cccefb08686ed122ac25774da855403f44a.webp",
+  },
+  {
+    slug: "trivandrum",
+    name: "Trivandrum",
+    aliases: ["thiruvananthapuram"],
+    state: "Kerala",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/c39c5074f4801f358a866452d238d7d5e58d5243.webp",
+  },
+  {
+    slug: "vadodara",
+    name: "Vadodara",
+    aliases: ["baroda"],
+    state: "Gujarat",
+    locationsCount: 8,
+    imageUrl:
+      "https://img.cofynd.com/small/images/original/3b872109e7da1d47edde7534394d757456417cfa.webp",
+  },
 ];
+
+const chandigarhIndex = CITIES.findIndex((city) => city.slug === "chandigarh");
+const sourceCityImages = CITIES.slice(0, chandigarhIndex).map((city) => city.imageUrl);
+for (let i = chandigarhIndex + 1; i < CITIES.length; i++) {
+  CITIES[i].imageUrl = sourceCityImages[(i - chandigarhIndex - 1) % sourceCityImages.length];
+}
+
 export const AVAILABLE_CITY_VIRTUAL_OFFICE = [
   {
     name: 'gurugram',
